@@ -9,6 +9,7 @@ JSON_PATH = "data.json"
 SAMPLE_RATE = 22500
 DURATION = 30 #GTZAN dataset
 TOTAL_SAMPLE = SAMPLE_RATE * DURATION
+
 def generate_features(data_path, json_path, n_mfcc = 13, n_fft = 2048, hop_length = 512, num_segment = 5):
 
   #dictionary data-type to encode information extracted from .wav file
