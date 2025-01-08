@@ -66,4 +66,3 @@ def generate_features(data_path, json_path, n_mfcc = 13, n_fft = 2048, hop_lengt
 
 if __name__ == "__main__":
   generate_features(DATA_PATH, JSON_PATH, num_segment = 10)
-
