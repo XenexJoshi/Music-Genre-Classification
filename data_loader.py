@@ -16,7 +16,6 @@ def generate_features(data_path, json_path, n_mfcc = 13, n_fft = 2048, hop_lengt
   data = {
     "mapping": [],
     "mfcc": [],
-    "delta mfcc": [],
     "labels": []
   }
 
@@ -50,15 +49,12 @@ def generate_features(data_path, json_path, n_mfcc = 13, n_fft = 2048, hop_lengt
                                     n_fft = n_fft,
                                     n_mfcc = n_mfcc,
                                     hop_length = hop_length)
-        delta_mfcc = librosa.feature.delta(mfcc, order = 1)
 
         mfcc = mfcc.T
-        delta_mfcc = delta_mfcc.T
 
         # Store mfcc if its dimension matches the expected size
         if len(mfcc) == vector_count:
           data["mfcc"].append(mfcc.tolist())
-          data["delta mfcc"].append(delta_mfcc.tolist())
           data["labels"].append(i - 1)
   
   with open(json_path, "w") as fp:
